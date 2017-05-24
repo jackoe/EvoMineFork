@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Implementation-Title: jenetics
+Bundle-Description: Jenetics - Java Genetic Algorithm Library
+ProjectName: Jenetics
+Bundle-SymbolicName: jenetics
+Implementation-Version: 3.8.0
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1493327276000
+Bundle-DocURL: http://jenetics.io
+Bundle-Vendor: Franz WilhelmstÃ¶tter
+Import-Package: javax.xml.bind,javax.xml.bind.annotation,javax.xml.bin
+ d.annotation.adapters
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Version: 3.8.0
+Tool: Bnd-3.2.0.201605172007
+Maintainer: Franz WilhelmstÃ¶tter
+Implementation-Vendor: Jenetics
+Export-Package: org.jenetics;uses:="javax.xml.bind.annotation.adapters
+ ,org.jenetics.util",org.jenetics.engine;uses:="org.jenetics,org.jenet
+ ics.stat,org.jenetics.util",org.jenetics.util,org.jenetics.stat
+Bundle-Name: jenetics
+Bundle-Version: 3.8.0
+Private-Package: org.jenetics.internal.collection,org.jenetics.interna
+ l.math,org.jenetics.internal.util
+Created-By: 1.8.0_131 (Oracle Corporation)
+Implementation-URL: http://jenetics.io
+
