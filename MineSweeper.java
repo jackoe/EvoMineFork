@@ -44,14 +44,13 @@ public class MineSweeper  {
      */
     private void revealZeros(int x, int y) {
         // catch the out of bounds
-        // // if it isn't already shown or flagged
-        if(!inBounds(x, y)
-        && !board[x][y].shown
-        && !board[x][y].flagged)  {
+        // if it isn't already shown or flagged
+        if(!inBounds(x, y) || board[x][y].shown)  {
             return;
         }
-        
+
         board[x][y].shown = true;
+
         // we reveal but don't recurse on nonzeros
         if(board[x][y].value != 0)  {
             return;
@@ -64,11 +63,22 @@ public class MineSweeper  {
         }
     }
 
+    public int numRevealed()  {
+        int numRevealedCount = 0;
+        for(int i = 0; i < board.length; i++)  {
+            for(int j = 0; j < board.length; j++)  {
+                numRevealedCount += board[i][j].shown ? 1 : 0;
+            }
+        }
+        return numRevealedCount;
+    }
+
     /* 
      * Click on a square
      */
     public int peek(int x, int y)  {
         if(!inBounds(x, y))  {
+            System.err.println("x: " + x + ", y: " + y + " out of bounds");
             return 0;
         }
         // We don't allow clicking on flagged squares
@@ -89,6 +99,7 @@ public class MineSweeper  {
      */
     public void flag(int x, int y)  {
         if(!inBounds(x, y))  {
+            System.err.println("x: " + x + ", y: " + y + " out of bounds");
             return;
         }
         // We don't allow flagging revealed squares
